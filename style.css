@@ -1,0 +1,134 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-light-pink: hsl(275, 100%, 97%);
+  --clr-grayish-purple: hsl(292, 16%, 49%);
+  --clr-dark-purple: hsl(292, 42%, 14%);
+
+  --ff-normal: "Work";
+  --ff-title: "Sans";
+  --fw-normal: 400;
+  --fw-semi: 600;
+  --fw-bold: 700;
+}
+
+body {
+  background-color: #ffffff;
+  font-size: 1rem;
+  font-family: var(--fw-normal);
+}
+.container {
+  display: grid;
+  margin: 0;
+  width: 100wv;
+  height: 100vh;
+  background-color: var(--clr-light-pink);
+  background-image: url("./assets/images/background-pattern-mobile.svg");
+  background-repeat: no-repeat;
+  background-position: top;
+}
+.card {
+  place-self: center;
+
+  width: 90%;
+  height: auto;
+  padding-block: 2rem;
+  background-color: #ffffff;
+
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px 1px rgb(217, 214, 214);
+  font-family: var(--ff-normal);
+}
+.question-container {
+  padding-block: 1rem;
+  padding-inline: 1rem;
+}
+.title-container {
+  display: flex;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+}
+
+h1 {
+  font-size: 2rem;
+  padding-left: 1rem;
+  color: var(--clr-dark-purple);
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  text-wrap: balance;
+  text-align: left;
+  padding-right: 0.5rem;
+  width: 35ch;
+  margin-right: 1rem;
+  color: var(--clr-dark-purple);
+  font-weight: var(--fw-bold);
+  font-size: 1rem;
+}
+button:hover,
+button:active {
+  color: var(--clr-grayish-purple);
+}
+
+button:focus {
+  color: var(--clr-grayish-purple);
+  outline-width: thin;
+}
+button::after {
+  content: url("./assets/images/icon-plus.svg");
+  float: right;
+}
+
+button.active::after {
+  content: url("./assets/images/icon-minus.svg");
+}
+button + .text {
+  display: none;
+}
+button.active + .text {
+  display: block;
+  color: var(--clr-grayish-purple);
+  text-align: justify;
+}
+
+.attribution {
+  position: absolute;
+  bottom: 0;
+  font-size: 11px;
+  padding-inline: 3rem;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+@media (min-width: 376px) and (max-width: 1440px) {
+  .container {
+    background-image: url(./assets/images/background-pattern-desktop.svg);
+  }
+  .card {
+    width: 40%;
+    padding-left: 1rem;
+  }
+  button {
+    width: 100%;
+    padding-inline: 0.5rem;
+    text-wrap: nowrap;
+  }
+  .text {
+    width: 40ch;
+  }
+  .attribution {
+    padding-bottom: 1rem;
+    place-self: center;
+  }
+}
